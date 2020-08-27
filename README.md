@@ -4,5 +4,5 @@ Some of these assignments required me to add to the pre-existing code that the t
 This repositry will functions as a sort of journal where I can track my progress and see progession while also allowing me to get familure with Git and Github. 
 ## Order
 The order that a took these courses are as follows:
-1. CS50
-2. How to Code: Simple Data
+1. CS50 on [edX](https://www.edx.org/course/cs50s-introduction-to-computer-science)
+2. How to Code: Simple Data on [edX](https://www.edx.org/course/how-to-code-simple-data)
