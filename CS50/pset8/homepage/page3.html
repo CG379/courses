@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+
+<html lang="en">
+    <head>
+        <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" rel="stylesheet">
+        <link href="styles.css" rel="stylesheet">
+        <title>My Webpage</title>
+        <script>
+            function popup()
+            {
+                if (name === '')
+                {
+                    alert("Go to page 2.");
+                }
+                else
+                {
+                    let name = document.querySelector('#name').value;
+                    alert("Sup " + name + ", go to page 2.");
+                    document.querySelector('#message').innerHTML = "GO TO PAGE 2!"
+                }
+            }
+
+        </script>
+    </head>
+    <body>
+        <h4>Page 3</h4>
+        <p>
+        <a href = "index.html"> Homepage</a>
+        <br>
+        <a href = "page1.html">Page 1</a>
+        <a href = "page2.html">Page 2</a>
+        <a href = "page3.html">Page 3</a>
+        </p>
+        <form onsubmit = "popup(); return false;">
+            <input type = "text" id = "name">
+            <input type = "submit">
+        </form>
+        <div id = message>
+            Hi
+        </div>
+    </body>
+</html>

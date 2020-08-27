@@ -1,0 +1,31 @@
+table
+{
+    border: 1px solid black;
+    border-collapse: collapse;
+}
+td
+{
+    border: 1px solid black;
+    padding: 5px;
+}
+.header
+{
+    background-color: red;
+}
+.column
+{
+    background-color: blue;
+}
+#italics
+{
+    font-style: italic;
+}
+a:hover
+{
+    background-color: yellow;
+}
+
+a:visited
+{
+    color: purple;
+}
