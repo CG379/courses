@@ -6,4 +6,5 @@ This repositry will functions as a sort of journal where I can track my progress
 The order that a took these courses are as follows:
 1. CS50 on [edX](https://www.edx.org/course/cs50s-introduction-to-computer-science)
 2. How to Code: Simple Data on [edX](https://www.edx.org/course/how-to-code-simple-data) (Could not complete due to audit access running out)
-3. How to Code: Complex Data on [edX](https://www.edx.org/course/how-to-code-complex-data)
+3. Algorithmics 3&4 VCE 2021
+4. How to Code: Complex Data on [edX](https://www.edx.org/course/how-to-code-complex-data)
