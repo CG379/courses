@@ -1,0 +1,33 @@
+﻿'''
+empty 	: → list
+isEmpty 	: list → boolean
+prepend 	: list x element → list
+head 		: list → element
+tail 		: list → list
+'''
+
+def empty():
+    return []
+    
+def isEmpty(my_list):
+    if len(my_list) == 0:
+        return True
+    else:
+        return False
+    
+def prepend(my_list, element):
+    my_list = [element] + my_list
+    return my_list
+    
+def head(my_list):
+    return my_list[0]
+    
+def tail(my_list):
+    return my_list[1:]
+
+testList = empty()
+testList = prepend(testList, 0) + testList
+testList = testList + [1]
+print(testList)
+print(head(testList))
+print(tail(testList))

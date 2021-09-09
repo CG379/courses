@@ -1,0 +1,29 @@
+﻿# Stacks
+
+def empty():
+    return []
+    
+def isEmpty(stack):
+    return len(stack) == 0
+
+def push(my_list, element):
+    my_list = [element] + my_list
+    return my_list
+
+def peek(stack):
+    return stack[0]
+    
+def pop(stack, element):
+    stack.pop(element)
+    return stack
+
+stack = empty()
+
+print(isEmpty(stack))
+stack = push(stack, 2)
+stack = push(stack, 1)
+stack = push(stack, 0)
+print(peek(stack))
+pop(stack, 1)
+print(stack)
+

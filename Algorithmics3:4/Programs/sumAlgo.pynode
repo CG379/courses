@@ -1,0 +1,19 @@
+﻿my_numbers = [1, 0, -6, 1, 2, 3, 15, -4, 3, 0, -3]
+
+def max_sum(my_list,k):
+    sum = 0
+    max = 0
+    for i in range(len(my_list)-k+1):
+        
+        for j in range(k):
+            sum += my_list[j+i]
+        #print(sum)
+        if sum > max:
+            max = sum
+            sum = 0
+        else:
+            sum = 0
+    return max
+
+
+print(max_sum(my_numbers, 3))

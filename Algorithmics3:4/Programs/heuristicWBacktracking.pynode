@@ -1,0 +1,90 @@
+﻿# Magic square tree search with backtracking
+'''
+make square 
+check square
+Each row, each column, and each diagonal are the same.
+Numbers 1 to 9
+def solver(board):
+     If complete return board
+     Find next step
+     For all possible ways to take the next step:
+         take step this way
+         if we are in a valid partial state:
+              result = solver(board)
+              if result is complete:
+                  return result
+              undo the step
+     Return board
+'''
+n = 3
+if n % 2 == 0:
+    n += 1
+
+
+def complete(square):
+    for i in range(n):
+        for j in range(n):
+            if square[i][j] == 0:
+                return False
+    return True
+
+def nextFree(square):
+    for i in range(n):
+        for j in range(n):
+            if square[i][j] == 0:
+                return i, j
+
+def valid(square):
+    # Numbers must be unique
+    num = {}
+    for i in range(n):
+        for j in range(n):
+            if square[i][j] != 0:
+                if square[i][j] in num:
+                    return False
+                else:
+                    num[square[i][j]] = True
+    # Sum of row, column ,+ve diagonal and -ve must be the same
+    # Check if each row, col etc contains 0
+   '''
+   for i in range(n):
+       for j in range(j):
+           if 
+   
+   
+   
+    # Rows
+    sumRows = []
+    for i in range(n):
+        if 0 in square[i]:
+            break
+        sumRows.append(sum(square[i]))
+    for i in range(1,n):
+        if sumRows[0] != sumRows[i]:
+            return False
+    #Columns
+    sumCols = []
+    for i in range(n):
+        for j in range(n):
+    '''
+    
+def solveSquare(square):
+    if complete(square):
+        return square
+    x, y = nextFree(square)
+    for number in range(1, 10):
+        square[x][y] = number
+        if valid(square):
+            branch = solveSquare(square)
+            if complete(branch):
+                return branch
+        square[x][y] = 0
+    return square
+
+def magic(n):
+    square = [[0 for x in range(n)] 
+        for y in range(n)] 
+    return solveSquare(square)
+    
+    
+print(magic(n))

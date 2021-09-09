@@ -1,0 +1,37 @@
+﻿from queue import PriorityQueue
+import random
+
+nodes = [[0,45,167], [1,208,179], [2,127,176], [3,164,252], [4,79,242], [5,117,318], [6,197,331]]
+for n in nodes:
+    new_node = graph.add_node(id =n[0])
+    new_node.set_position(n[1], n[2], relative = False)
+
+edges = [[0,2,7], [1,2,8], [3,1,5], [4,3,15], [3,2,7], [0,4,5], [2,4,9], [5,4,6], [5,3,8], [6,5,11], [6,3,9]]
+for e in edges:
+    n1 = graph.node(e[0])
+    n2 = graph.node(e[1])
+    weight = e[2]
+    new_edge = graph.add_edge(n1, n2,weight)
+
+pq = PriorityQueue()
+seen = {}
+
+pq.put([0, random.choice(graph.nodes()), None])
+
+while not pq.empty():
+    temp = pq.get()
+    currentNode = temp[1]
+    currentEdge = temp[2]
+    
+    if currentNode in seen:
+        continue
+    seen[currentNode] = True
+    if currentEdge is not None:
+        currentEdge.traverse(currentEdge.other_node(currentNode))
+    
+    currentNode.set_color(color=Color.RED)
+    
+    for edge in currentNode.incident_edges():
+        pq.put([edge.weight(), edge.other_node(currentNode), edge])
+    
+    pause(500)

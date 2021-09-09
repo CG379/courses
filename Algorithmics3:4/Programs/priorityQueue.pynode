@@ -1,0 +1,30 @@
+﻿# Priority Queue
+from heapq import *
+
+def empty():
+    return []
+
+def isEmpty(pq):
+    return len(pq) == 0
+
+def insertWithPriority(pq, element, priority):
+    # 1st element must be the priority
+    item = (priority, element)
+    heappush(pq, item)
+    return pq
+
+def getMin(pq):
+    return pq[0]
+
+def removeMin(pq):
+    return heappop(pq)
+
+pq = empty()
+print(isEmpty(pq))
+
+pq = insertWithPriority(pq, "hello", 111)
+pq = insertWithPriority(pq, "my", 121)
+pq = insertWithPriority(pq, "name", 141)
+pq = insertWithPriority(pq, "is", 151)
+
+print(pq)
