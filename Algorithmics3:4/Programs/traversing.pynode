@@ -1,0 +1,25 @@
+﻿n0 = graph.add_node()
+n1 = graph.add_node()
+n2 = graph.add_node()
+n3 = graph.add_node()
+n4 = graph.add_node()
+
+graph.add_edge(n2, n3)
+graph.add_edge(n0, n1)
+graph.add_edge(n3, n4)
+graph.add_edge(n1, n2)
+
+traversedEdges = {}
+
+start = n0
+end = n4
+current = start
+
+while current != end:
+    for edge in current.outgoing_edges():
+        if edge in traversedEdges:
+            continue
+        traversedEdges[edge] = True
+        edge.traverse()
+        current = edge.other_node(current)
+        pause(1000)

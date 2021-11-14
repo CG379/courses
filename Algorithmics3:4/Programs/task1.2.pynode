@@ -1,0 +1,24 @@
+﻿# Task 1.2
+
+list1 = [-2, -7, 0, 0, 5, 6, 100]
+
+for i in range(len(list1)):
+    print(list1[i])
+
+for x in range(len(list1) - 1 , -1, -1):
+    print(list1[x])
+
+sum = 0
+for j in range(len(list1)):
+    sum += list1[j]
+
+avg = sum/len(list1)
+
+for k in range(len(list1)):
+    list1[k] = list1[k] * 2
+print(list1)
+
+list2 = []
+for l in range(len(list1) - 1 , -1, -1):
+    list2.append(list1[l])
+print(list2)
