@@ -1,0 +1,15 @@
+consistent = no contradictions
+complete = finite number of axioms that can be applied to any problem			Mings problems is decidable since it can solve the problem with any input. 
+There is not enough information to determine the decidability of amirs problem	The tape acts as storage for the machine. if the truing machines role was to add numbers together it would have an input of the numbers and operations, store any sub-result of these operations and have the output written on it. 
+	halt(A(), I)
+    if A(I) halts
+         return true
+    return false
+
+Q(A())
+    if halt(A(), I)
+        loop forever
+   else
+        return false
+
+Q(Q())

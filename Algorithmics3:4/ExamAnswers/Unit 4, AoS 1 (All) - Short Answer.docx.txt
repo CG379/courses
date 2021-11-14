@@ -1,0 +1,7 @@
+divide and conquer	function calls itself twice, each time halving the input size, 2T(n/2). each function runs in constant time outside that therefore the + 1 
+base case runs in constant time	O(n)	run in O(n), all members would have to be considered. They would have a similar run time. 	The time complexity would be O(2^n). However it can't be verified in polynomial time making it not in NP	All NP-complete problems can be reduced to each other within polynomial time. If one can be solves within polynomial time all other could be solved within polynomial time. 	O(n^2). Each sort and median calls are done sequentially therefore it is 2n^2 + 2	It is wrong. If there was a list {1,2,500} and another {1,50,60} it would say the latter is larger despite having smaller elements that a.	O(n^3), it has 2 loops nested inside another iterating through n integers	array makes 8 sub calls to multiply a sub array half its size. The addition at the end contains 2 nested loops giving n^2	O(n^3)
+log2(8) > 2	The time complexity is O(n^(log2(7)))
+log2(7) < 3 therefore it is better 	O(n)
+T(n-1) + O(1)	It checks all elements regardless of the order therefore the best case is the same as the worst case. 	O(n^(log2(3)))	O(nlogn)	O(n)
+[1,2,3,4,5,6,7,8,9,10]	O(n^2)
+[10,9,8,7,6,5,4,3,2,1]

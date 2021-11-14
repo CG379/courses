@@ -1,0 +1,65 @@
+Contains all edges and node in G with any additional edges added so the every node can reach every other node. 	Run DFS from every node to see if it can reach every other node. If it can't, add an edge between the two nodes			ABDGEHCF	PR(D) = (1-d)/n + (incoming links)
+PR(D) can't equal 0 since the min value is always (1-d)/n
+d usually 0.85 but lies between 0 and 1 exclusive	if weekend
+   if homework
+        study()
+   else 
+        sleep()
+else
+    if time > 9am and time < 3pm
+        school()
+    else
+         if homework
+            study()
+        else
+            sleep()	5! = 120 routes	Brute force	the algorithm has a O(n!) time complexity. The order of growth is n! and it won't be feasible to calculate the routes bast a certain point. 	It has a negative cycle CED	n = 1
+A tree with 1 node has 1-1 = 0 edges 
+
+n = k
+a tree with k nodes. Assume has k-1 edges
+
+n = k+1
+tree with k + 1 nodes has k - 1 +1 = k edges 	n = 1
+sum = 1 = 1^2
+
+n = k
+sum = K^2
+
+n = k+1	Device O	Floyd_Warshall can determine if all paths from every node to every other node. If there is no path, the distance will be infinite, showing that the node can't be reached. 	sum <- 0
+count <- 0 
+
+for every element in temperature_list
+    if element != -255:
+        sum += element 
+        count += 1
+avg = sum / count
+
+return avg	square_area(length):
+    return length * length	
+
+val1 = square_area(c) * (1 - percentage)
+val2 = square_area(b) + square_area(a)
+
+if val1 > val2
+    return True
+else
+    return False	c^2 * (1-percentage) < a^2 + b^2 = c^2
+He should choose a and b	(1-p) * c^3 > a^3 + b^3
+p <  (c^3 - a^3 - b^3 )/ c^3
+should take c if the inequality is false and a + b if it is true	suppose (u, v) is not in the min spanning tree of G. 
+There must be a path connecting u and v that isn't (u, v), call this P.
+Any edge in P must be the smallest edge connecting 2 nodes in P.
+however, (u, v) is the smallest edge in the graph leading to a contradiction. 
+This makes (u, v) in the min spanning tree. 
+
+ 
+	She is using decrease and conquer and binary search. 
+Each question will be the city that is in the middle of the list. yes or no will indicate whether the desired city is within which half of the list.
+Each time, the search space is decreased by half.  
+this gives it a time complexity of O(log(n)).
+Log2(50000) < 16 therefore she will be able to answer it in less than 16 questions.	Pick an arbitrary node and run a DFS. If every node can be reached from the original node it is connected, otherwise it is disconnected. 	damping factor, probability a someone follows the links of a webpage rather than jump randomly 	represents the user randomly clicking on the given website
+N = no. of total websites
+	probability a user clicked on the given website from a link form another website	At the start, all websites are initialised to 1/N. Therefore it will stay that way. 
+Imaginary links are added from every other node to E	C, f, g, j, I, h	The nodes are not involved in the negative cycle. Bellman-Ford will record the correct shortest path for these nodes while C, F, G, H, I, J will continue to grow smaller. 	the (1,1,1) branch will make A win	S,D,C,G,H,F,B,E,A,J,I		Condition 1 is met without modifications. For 2, the shortest path from tree generated would have to have a total weight less than or equal to the sum of all shortest paths. 	Schools are represented as nodes and edges between schools indicate you can travel between them. the weights on each edge will indicate the distance from each school	8 + 3 + 9 = 20km	A>B>D	17km	Dijkstra's algorithm could be used to change each edge weight to 2 * distance + 1	Dijkstra will compute the shortest path possible from the start node to every other node. The longest path is desired, so it isn't possible. 	|E| < |V| - 1 for smallest
+for largest |E| = (|V| (|V| +1))/2
+	Prim's algorithm	A b c d e g f h i	it has negative cycles	Each iteration will lower the path distance. therefore not suitable since no shortest path is found.
