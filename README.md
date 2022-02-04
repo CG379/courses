@@ -9,3 +9,4 @@ The order that a took these courses are as follows:
 2. How to Code: Simple Data on [edX](https://www.edx.org/course/how-to-code-simple-data) (Could not complete due to audit access running out)
 3. Algorithmics 3&4 VCE 2021
 4. How to Code: Complex Data on [edX](https://www.edx.org/course/how-to-code-complex-data)
+5. Programming Languages Part A on [Coursera](https://www.coursera.org/learn/programming-languages)
