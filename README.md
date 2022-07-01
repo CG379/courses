@@ -5,9 +5,9 @@ This repositry will functions as a sort of journal where I can track my progress
 ## Order
 Computing 1/2 was taken before all courses but due to limited exposure to CS principals is inculded but not as a course.
 The order that a took these courses are as follows:
-1. CS50 on [edX](https://www.edx.org/course/cs50s-introduction-to-computer-science)
-2. How to Code: Simple Data on [edX](https://www.edx.org/course/how-to-code-simple-data) (Could not complete due to audit access running out)
-3. Algorithmics 3&4 VCE 2021
-4. How to Code: Complex Data on [edX](https://www.edx.org/course/how-to-code-complex-data)
-5. Programming Languages Part A on [Coursera](https://www.coursera.org/learn/programming-languages)
-6. ENG1013 in person at Monash
+1. CS50 on [edX](https://www.edx.org/course/cs50s-introduction-to-computer-science) - 2020
+2. How to Code: Simple Data on [edX](https://www.edx.org/course/how-to-code-simple-data) (Could not complete due to audit access running out) - 2020
+3. Algorithmics 3&4 VCE - 2021
+4. How to Code: Complex Data on [edX](https://www.edx.org/course/how-to-code-complex-data) - 2021
+5. Programming Languages Part A on [Coursera](https://www.coursera.org/learn/programming-languages) - 2021/2022
+6. ENG1013 in person at Monash - 2022 First Semester
