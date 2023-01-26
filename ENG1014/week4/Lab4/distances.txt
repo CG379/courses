@@ -1,0 +1,21 @@
+Planet  	Distance(km) 	Orb Vel(km/s)
+Mercury	57900000	47.4
+Venus 	108200000	35
+Mars 	149600000	29.8
+Earth 	227900000	24.1
+Jupiter	778600000	13.1
+Saturn 	1433500000	9.7
+Uranus	2872500000	6.8
+Neptune	4495100000	5.4
+
+
+
+
+
+
+
+
+
+
+
+
