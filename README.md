@@ -11,3 +11,4 @@ The order that a took these courses are as follows:
 4. How to Code: Complex Data on [edX](https://www.edx.org/course/how-to-code-complex-data) - 2021
 5. Programming Languages Part A on [Coursera](https://www.coursera.org/learn/programming-languages) - 2021/2022
 6. ENG1013 in person at Monash - 2022 First Semester
+7. ENG1014 in person at Monash - 2022 Second Semester
