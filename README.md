@@ -10,6 +10,7 @@ The order that a took these courses are as follows:
 3. Algorithmics 3&4 VCE - 2021
 4. How to Code: Complex Data on [edX](https://www.edx.org/course/how-to-code-complex-data) - 2021
 5. Programming Languages Part A on [Coursera](https://www.coursera.org/learn/programming-languages) - 2021/2022
-6. ENG1013 in person at Monash - 2022 First Semester
-7. ENG1014 in person at Monash - 2022 Second Semester
+6. ENG1013 (Smart Systems) in person at Monash - 2022 First Semester
+7. ENG1014 (Numerical Analysis) in person at Monash - 2022 Second Semester
 8. Course 1 of the Machine Learning Specialisation (Supervised Machine Learning) by Andrew Ng on [Coursera](https://www.coursera.org/learn/machine-learning) - 2023
+9. ECE2071 (Computer Organisation and Programming) in person at Monash - 2023 Frist Semester
