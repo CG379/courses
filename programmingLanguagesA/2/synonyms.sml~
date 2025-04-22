@@ -1,9 +1,0 @@
-datatype suit Club | Diamond | Heart | Spade
-datatype rank = Jack | Queen | King | Ace | Num of int
-type card = suit * rank
-type name_recod = {student_num : int option,
-		   first : string,
-		   middle : string option,
-		   last : string }
-		      
-				   

@@ -1,8 +1,0 @@
-public void Draw()
-{
-    Console.SetCursorPosition(xCoord, yCoord);
-    Console.WriteLine("###############################################");
-    Console.WriteLine("              NOUGHTS AND CROSSES");
-    Console.WriteLine("###############################################"+ Environment.NewLine);
-    Console.WriteLine("      Player 1 = X          Player 2 = O" + Environment.NewLine);
-}

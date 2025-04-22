@@ -1,9 +1,0 @@
-public void Draw()
-{
-    Console.SetCursorPosition(xCoord, yCoord);
-    Console.WriteLine("******************* MESSAGE *******************");
-    Console.WriteLine("*                                             *");
-    Console.WriteLine("*                                             *");
-    Console.WriteLine("*                                             *");
-    Console.WriteLine("***********************************************" + Environment.NewLine);
-}

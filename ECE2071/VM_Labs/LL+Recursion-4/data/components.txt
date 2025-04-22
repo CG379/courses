@@ -1,3 +1,0 @@
-Resistor,120,R,10,0.40
-Resistor,120,K,20,1.20
-Capacitor,47,nF,5000,0.10
