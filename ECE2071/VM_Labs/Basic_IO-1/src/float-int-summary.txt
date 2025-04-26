@@ -1,0 +1,9 @@
+Finding for float calculations:
+1. All instances of integers needed to be replaced with a float. 
+This make sure the computer stores the number as a decimal otherwise it would store only the whole numbers.
+2. Integer division (eg 7/3) produces 2 while float produces 2.3333. 
+Integer inputs lead to integer outputs the same with floats. You also can't mix types.
+3. Converting from int to float sets the decimal part to 0 while the other way removes any decimal parts.
+4. Modulous doesn't work or make sense for floats since the decimal and the whole number 
+are stored together. Also it wouldn't work for undefined remainders.
+Therefore you must choose the appropriate datatype for your program.

@@ -1,0 +1,71 @@
+﻿start = graph.add_node("0, 0")
+
+l1 = graph.add_node("9, 0")
+e1 = graph.add_edge(start, l1)
+l2 = graph.add_node("9, 4")
+e2 = graph.add_edge(start, l2)
+e3 = graph.add_edge(l1, l2)
+l3 = graph.add_node("5, 4")
+e4 = graph.add_edge(l1, l3)
+l4 = graph.add_node("5, 0")
+e5 = graph.add_edge(l3, l4)
+l5 = graph.add_node("1, 4")
+e6 = graph.add_edge(l4, l5)
+
+r1 = graph.add_node("0, 4")
+e7 = graph.add_edge(start, r1)
+e8 = graph.add_edge(l2, r1)
+e9 = graph.add_edge(l3, r1)
+r2 = graph.add_node("4, 0")
+e10 = graph.add_edge(start, r2)
+e11 = graph.add_edge(l1, r2)
+r3 = graph.add_node("4, 4")
+e12 = graph.add_edge(r2, r3)
+r4 = graph.add_node("5, 3")
+e13 = graph.add_edge(r4, r3)
+r5 = graph.add_node("8, 0")
+e14 = graph.add_edge(r3, r5)
+e15 = graph.add_edge(r4, r5)
+
+b1 = graph.add_node("8, 4")
+e16 = graph.add_edge(r5, b1)
+b2 = graph.add_node("9, 3")
+e17 = graph.add_edge(b1, b2)
+b3 = graph.add_node("0, 3")
+e18 = graph.add_edge(b2, b3)
+b4 = graph.add_node("3, 0")
+e19 = graph.add_edge(b3, b4)
+b5 = graph.add_node("3, 4")
+e20 = graph.add_edge(b4, b5)
+b6 = graph.add_node("7, 0")
+e21 = graph.add_edge(b5, b6)
+b7 = graph.add_node("7, 4")
+e22 = graph.add_edge(b6, b7)
+b8 = graph.add_node("9, 2")
+e23 = graph.add_edge(b7, b8)
+b9 = graph.add_node("0, 2")
+e24 = graph.add_edge(b8, b9)
+b10 = graph.add_node("2, 0")
+e25 = graph.add_edge(b9, b10)
+b11 = graph.add_node("2, 4")
+e26 = graph.add_edge(b10, b11)
+b12 = graph.add_node("6, 0")
+e27 = graph.add_edge(b11, b12)
+
+
+# Research depth first traversal
+current = start
+traversedEdges = []
+traversedNodes = []
+
+key = "6"
+
+while key not in current.value():
+    for edge in current.outgoing_edges():
+        temp = edge.other_node(current)
+        if temp not in traversedNodes:
+            traversedNodes.append(temp)
+            traversedEdges.append(edge)
+            edge.traverse()
+    pause(500)
+    current = traversedNodes.pop()

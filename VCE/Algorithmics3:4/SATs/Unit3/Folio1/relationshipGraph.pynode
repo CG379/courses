@@ -1,0 +1,78 @@
+﻿# Algorithmics SAT
+# The Boys season 1 episodes 1-3 Graph
+
+
+theBoys = ["Hughie", "Butcher", "Mother's Milk", "Frenchie"]
+theSeven = ["Homelander", "Black Noir", "Starlight","Mave", "Translucent", "The Deep", "A-Train"]
+
+for person in range(len(theBoys)):
+    theBoys[person] = graph.add_node(theBoys[person])
+    theBoys[person].set_color(color=Color.GREEN)
+# Butcher and Hughie
+graph.add_edge(theBoys[0], theBoys[1])
+
+# Connections for the Boys
+for i in range(2):
+    graph.add_edge(theBoys[1], theBoys[i+ 2])
+graph.add_edge(theBoys[0], theBoys[3]).set_weight(weight=11)
+graph.add_edge(theBoys[2], theBoys[3]).set_color(color=Color.GREEN).set_weight(weight=4)
+graph.add_edge(theBoys[0], theBoys[2]).set_weight(weight=7)
+for edge in theBoys[1].outgoing_edges():
+    edge.set_color(color=Color.GREEN)
+
+for hero in range(len(theSeven)):
+    theSeven[hero] = graph.add_node(theSeven[hero])
+    if theSeven[hero] is not theSeven[2]:
+        theSeven[hero].set_color(color=Color.RED)
+theSeven[2].set_color(color=Color.GREEN)
+
+theBoys[1].set_position(115, 100)
+theBoys[0].set_position(230, 350)
+theBoys[3].set_position(50, 350)
+
+theSeven[0].set_position(380, 100)
+theSeven[1].set_position(450, 30)
+theSeven[2].set_position(380, 350)
+theSeven[3].set_position(300, 30)
+theSeven[5].set_position(450, 200)
+theSeven[6].set_position(300, 250)
+
+allNodes = graph.nodes()
+for node in allNodes:
+    node.set_size(size=20)
+
+# Connenctions for the Seven
+for i in range(1, len(theSeven), 1):
+    graph.add_edge(theSeven[0], theSeven[i], directed = True)
+
+graph.add_edge(theBoys[0], theSeven[4]).set_weight(weight=-20)
+graph.add_edge(theBoys[1], theSeven[4]).set_weight(weight=-22)
+graph.add_edge(theSeven[2], theSeven[5]).set_weight(weight=-7).set_color(color=Color.RED)
+graph.add_edge(theBoys[0], theSeven[6]).set_color(color=Color.RED).set_weight(weight=-10)
+graph.add_edge(theBoys[1], theSeven[0]).set_weight(weight=-8)
+graph.add_edge(theBoys[0], theSeven[2]).set_weight(weight=9)
+
+graph.edges_between(theBoys[0], theBoys[1])[0].set_weight(weight=12)
+graph.edges_between(theBoys[1], theBoys[3])[0].set_weight(weight=8)
+graph.edges_between(theBoys[2], theBoys[1])[0].set_weight(weight=7)
+
+graph.edges_between(theSeven[0], theSeven[1])[0].set_weight(weight=-2)
+graph.edges_between(theSeven[0], theSeven[2])[0].set_weight(weight=-4)
+graph.edges_between(theSeven[0], theSeven[3])[0].set_weight(weight=-9)
+graph.edges_between(theSeven[0], theSeven[4])[0].set_weight(weight=-2)
+graph.edges_between(theSeven[0], theSeven[5])[0].set_weight(weight=-9)
+graph.edges_between(theSeven[0], theSeven[6])[0].set_weight(weight=-2)
+
+for edge in theSeven[0].outgoing_edges():
+    edge.set_color(color=Color.RED)
+for edge in theSeven[4].outgoing_edges():
+    edge.set_color(color=Color.RED)
+for edge in theBoys[0].outgoing_edges():
+    if edge.other_node(theBoys[0]) == theSeven[4] or edge.other_node(theBoys[0]) == theSeven[6]:
+        continue
+    edge.set_color(color=Color.GREEN)
+    
+
+pause(5000)
+graph.edges_between(theBoys[0], theSeven[4])[0].traverse(color=Color.DARK_GREY)
+theSeven[4].set_color(color=Color.DARK_GREY)

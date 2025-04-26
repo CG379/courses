@@ -1,0 +1,186 @@
+(* Dan Grossman, Coursera PL, HW2 Provided Code *)
+
+(* if you use this function to compare two strings (returns true if the same
+   string), then you avoid several of the functions in problem 1 having
+   polymorphic types that may be confusing *)
+fun same_string(s1 : string, s2 : string) =
+    s1 = s2
+
+(* put your solutions for problem 1 here *)
+
+(* string, listof string -> listof string
+returns the SOME list without the input string
+*)
+fun all_except_option (str, lsx) =
+    let fun find (_, []) =
+	    NONE
+	  | find (y, x::xs) =
+	    if same_string(str, x)
+	    then SOME (y @ xs)
+	    else
+		find (y @ [x], xs)
+    in
+	find ([],lsx)
+    end
+
+
+(*
+Listof (listof string), string -> listof string
+*)
+fun get_substitutions1 ([],_) = []
+  | get_substitutions1 (x::xs, str) =
+    case (all_except_option (str, x)) of
+	NONE => get_substitutions1 (xs, str)
+      | SOME names => names @ get_substitutions1(xs, str) 
+
+(*
+same as above but uses tail recursion
+*)
+fun get_substitutions2 (subs, name) =
+    let
+	fun get_subs ([], n) = n
+	  | get_subs (x::xs, n) =
+	    get_subs (xs, n @ getOpt (all_except_option (name, x), n))
+    in
+	get_subs(subs, [])
+    end
+
+
+(*
+similar_names ([["Fred","Fredrick"],["Elizabeth","Betty"],["Freddie","Fred","F"]], {first="Fred", middle="W", last="Smith"})
+*)
+fun similar_names (subs, {first=f, middle=m, last = l}) =
+    let
+	fun get_name (sub) = {first = sub, middle = m, last = l}
+	fun get_names ([], n) = n
+	  | get_names (x::xs, n) = get_names (xs, n @ [get_name(x)])
+    in
+	get_names (get_substitutions1(subs, f), [{first = f, middle = m, last= l}])
+    end
+    
+(* you may assume that Num is always used with values 2, 3, ..., 10
+   though it will not really come up *)
+datatype suit = Clubs | Diamonds | Hearts | Spades
+datatype rank = Jack | Queen | King | Ace | Num of int 
+type card = suit * rank
+
+datatype color = Red | Black
+datatype move = Discard of card | Draw 
+
+exception IllegalMove
+
+(* put your solutions for problem 2 here *)
+(*
+card -> color
+returns the cards color
+*)
+fun card_color (suit, rank) =
+    case suit of
+	Hearts => Red
+      | Diamonds => Red
+      | _ => Black
+
+
+
+(*
+Card -> int
+inputs a card and returns its value
+*)
+fun card_value (suit, rank) =
+    case rank of
+	Jack => 10
+      | Queen => 10
+      | King => 10
+      | Ace => 11
+      | Num x => x
+
+
+
+(*
+listof card, card, exception -> listof card or exception
+removes the card from the list of cards. If card isnt in the list raise exception
+only remove the first instance of the card
+*)
+fun remove_card (cs,c,e) =
+    let
+	fun is_in (_, []) = raise e
+	  | is_in (n, x::xs) =
+	    if x = c
+	    then
+		n @ xs
+	    else
+		is_in(n @ [x], xs)
+    in
+	is_in([],cs)
+    end
+
+
+(*
+listof card -> bool
+returns true if the cards are the same colour else false
+TODO Fix
+*)
+fun all_same_color (cs) =
+    case cs of
+	[] => true
+      | _::[] => true
+      | a::b::other => card_color a = card_color b andalso all_same_color (b::other)
+
+(*
+listof cards -> int
+returns the sum of all the cards in the list
+use tail recursive helper
+*)
+fun sum_cards (cs) =
+    let
+	fun add ([], sum) = sum
+	  | add (c::cs, sum) =  add(cs, sum + card_value(c)) 
+		
+    in
+	add(cs, 0)
+    end
+
+(*
+listof cards, int -> int
+input card list and a goal, returns the score
+*)
+fun score (cs, goal) =
+    let
+	val sum = sum_cards cs
+	val value = if (sum > goal) then 3 * (sum - goal) else (goal - sum)
+    in
+	if all_same_color cs then value div 2 else value
+    end
+
+
+
+(*
+Runs a game of cards
+*)
+fun officiate (cards, moves, goal) =
+    let
+	fun game (cards, hand, []) = score (hand, goal)
+	  | game (cards, hand, x::xs) =
+	    let
+		fun discard_card (cards, hand, card, moves) =
+		    game (cards, remove_card (hand, card, IllegalMove), moves)
+
+		fun draw_card ([], hand, moves) = score (hand, goal)
+		  | draw_card (x::xs, hand, moves) =
+		    let
+			val drawed_helds = x::hand
+			val is_greater = sum_cards (drawed_helds) > goal
+		    in
+			if is_greater then
+			    score (drawed_helds, goal)
+			else
+			    game (xs, drawed_helds, moves)
+		    end
+	    in
+		case x of
+		    Discard card => discard_card (cards, hand, card, xs)
+		  | Draw => draw_card (cards, hand, xs)
+	    end
+    in
+	game (cards, [], moves)
+    end

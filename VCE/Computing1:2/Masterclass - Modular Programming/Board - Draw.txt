@@ -1,0 +1,18 @@
+public void Draw()
+{
+    Console.SetCursorPosition(xCoord, yCoord);
+    Console.WriteLine("               |               |");
+    //Console.WriteLine("       {0}       |       {1}       |       {2}", positions[0], positions[1], positions[2]);
+    Console.WriteLine("       {0}       |       {1}       |       {2}", "1", "2", "3");
+    Console.WriteLine("               |               |");
+    Console.WriteLine("-----------------------------------------------");
+    Console.WriteLine("               |               |");
+    //Console.WriteLine("       {0}       |       {1}       |       {2}", positions[3], positions[4], positions[5]);
+    Console.WriteLine("       {0}       |       {1}       |       {2}", "4", "5", "6");    
+    Console.WriteLine("               |               |");
+    Console.WriteLine("-----------------------------------------------");
+    Console.WriteLine("               |               |");
+    //Console.WriteLine("       {0}       |       {1}       |       {2}", positions[6], positions[7], positions[8]);
+    Console.WriteLine("       {0}       |       {1}       |       {2}", "7", "8", "9");
+    Console.WriteLine("               |               |" + Environment.NewLine);
+}

@@ -1,0 +1,39 @@
+private bool HasResult()
+{
+    char winningMark = ' ';
+    // check horizontal lines
+    if(board.positions[0].mark == board.positions[1].mark && board.positions[0].mark == board.positions[2].mark)
+        winningMark = board.positions[0].mark;
+    else if (board.positions[3].mark == board.positions[4].mark && board.positions[3].mark == board.positions[5].mark)
+        winningMark = board.positions[3].mark;
+    else if (board.positions[6].mark == board.positions[7].mark && board.positions[6].mark == board.positions[8].mark)
+        winningMark = board.positions[6].mark;
+    // check vertical lines
+    else if (board.positions[0].mark == board.positions[3].mark && board.positions[0].mark == board.positions[6].mark)
+        winningMark = board.positions[0].mark;
+    else if (board.positions[1].mark == board.positions[4].mark && board.positions[1].mark == board.positions[7].mark)
+        winningMark = board.positions[1].mark;
+    else if (board.positions[2].mark == board.positions[5].mark && board.positions[2].mark == board.positions[8].mark)
+        winningMark = board.positions[2].mark;
+    // check diagonal
+    else if (board.positions[0].mark == board.positions[4].mark && board.positions[0].mark == board.positions[8].mark)
+        winningMark = board.positions[0].mark;
+    else if (board.positions[2].mark == board.positions[4].mark && board.positions[2].mark == board.positions[6].mark)
+        winningMark = board.positions[2].mark;
+      
+    if(winningMark != ' ')
+    {
+        int player = Array.IndexOf(marks, winningMark) + 1;
+        message.Clear();
+        message.Add("PLAYER " + player + " WINS!");
+        return true;
+    }
+    else if (turns == 9)
+    {
+        message.Clear();
+        message.Add("ITS A DRAW!");
+        return true;
+    }
+    else
+        return false;
+}
