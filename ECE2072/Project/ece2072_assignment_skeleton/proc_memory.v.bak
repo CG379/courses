@@ -1,0 +1,143 @@
+module proc_memory(clk, rst, PC, instruction, R0, R1, R2, R3, R4, R5, R6, R7, tick_out, display);
+    input clk;
+    input rst;
+    output [15:0] PC;
+    input [15:0] instruction;
+    
+    output wire [15:0] R0, R1, R2, R3, R4, R5, R6, R7;
+    output [3:0] tick_out;
+    output wire [15:0] display;
+
+    wire [15:0] alu_out, mux_out, ir_out, sign_ext_din, G;
+    wire [15:0] A;
+    reg [2:0] alu_op;
+    wire [3:0] tick_counter;
+    reg enableG, enable_reg_A;
+    reg [7:0] enable_reg;
+    reg [3:0] sel;
+    wire [2:0] op_code, r_x, r_y;
+    wire enable_tick;
+    reg enable_ir;
+    reg enable_display;
+    reg [15:0] next_PC;
+    reg enable_PC;
+
+    assign enable_tick = 1'b1;
+    assign tick_out = tick_counter;
+
+    sign_extend extend(.in(instruction[8:0]), .ext(sign_ext_din));
+
+    assign op_code = ir_out[8:6];
+    assign r_x = ir_out[5:3];
+    assign r_y = ir_out[2:0];
+
+    assign bus = mux_out;
+
+    // Add PC register
+    register_n #(.N(16)) reg_PC (.r_in(next_PC), .enable(enable_PC), .clk(clk), .Q(PC), .rst(rst));
+
+    // Other registers (R0-R7, G, A, IR, H) remain the same
+
+    multiplexer mux (.SignExtDin(sign_ext_din), .R0(R0), .R1(R1), .R2(R2), .R3(R3), .R4(R4), .R5(R5), .R6(R6), .R7(R7), .G(G), .sel(sel), .Bus(mux_out));
+
+    ALU alu (.input_a(A), .input_b(mux_out), .alu_op(alu_op), .result(alu_out));
+
+    tick_FSM counter (.clk(clk), .rst(rst), .enable(enable_tick), .tick(tick_counter));
+	 
+	 always @(posedge clk or posedge rst) begin
+        if (rst) begin
+            next_PC <= 16'b0;
+            enable_PC <= 1'b1;
+        end else begin
+            enable_reg = 8'b00000000;
+            enable_reg_A = 1'b0;
+            enableG = 1'b0;
+            sel = 4'b0000;
+            alu_op = 3'b000;
+            enable_ir = 1'b0;
+            enable_display = 1'b0;
+            enable_PC = 1'b0;
+
+            case (tick_counter)
+                4'b0001: begin
+                    enable_ir = 1'b1;
+                end
+                4'b0010: begin
+                    case (op_code)
+                        3'b000: begin // disp
+                            sel = {1'b0, r_x};
+                            enable_display = 1'b1;
+                        end
+								3'b001, 3'b010, 3'b011, 3'b100, 3'b101: begin // add, addi, sub, mult, ssi
+                            sel = {1'b0, r_x};
+                            enable_reg_A = 1'b1;
+                        end
+                        3'b111: begin // movi
+                            sel = 4'b1001;
+                            enable_reg[r_x] = 1'b1;
+                        end
+                        3'b110: begin // bez
+                            sel = {1'b0, r_x};
+                            enable_reg_A = 1'b1;
+                        end
+                        default: begin /* nothing */ end 
+                    endcase
+                end
+                4'b0100: begin
+                    case (op_code)
+                        3'b001: begin // add
+                            sel = {1'b0, r_y};
+                            alu_op = 3'b001;
+                            enableG = 1'b1;
+                        end
+                        3'b010: begin // addi
+                            sel = 4'b1001;
+                            alu_op = 3'b001;
+                            enableG = 1'b1;
+                        end
+                        3'b011: begin // sub
+                            sel = {1'b0, r_y};
+                            alu_op = 3'b010;
+                            enableG = 1'b1;
+                        end
+                        3'b100: begin // mult
+                            sel = {1'b0, r_y};
+                            alu_op = 3'b000;
+                            enableG = 1'b1;
+                        end
+                        3'b101: begin // ssi
+                            sel = 4'b1001;
+                            alu_op = 3'b011;
+                            enableG = 1'b1;
+                        end
+                        3'b110: begin // bez
+                            if (A == 16'b0) begin
+                                next_PC <= PC + {{7{instruction[8]}}, instruction[8:0]} * 2;
+                            end else begin
+                                next_PC <= PC + 2;
+                            end
+                            enable_PC <= 1'b1;
+                        end
+                        default: begin /* nothing */ end
+                    endcase
+                end
+                4'b1000: begin
+                    case (op_code)
+                        3'b001, 3'b010, 3'b011, 3'b100, 3'b101: begin // add, addi, sub, mult, ssi
+                            sel = 4'b1000;
+                            enable_reg[r_x] = 1'b1;
+                        end
+                        default: begin /* nothing */ end
+                    endcase
+                    
+                    // Update PC for non-branch instructions
+                    if (op_code != 3'b110) begin
+                        next_PC <= PC + 2;
+                        enable_PC <= 1'b1;
+                    end
+                end
+                default: begin /* nothing */ end
+            endcase
+        end
+    end
+endmodule

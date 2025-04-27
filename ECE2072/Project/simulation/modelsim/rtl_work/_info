@@ -1,0 +1,166 @@
+m255
+K4
+z2
+13
+!s112 1.1
+!i10d 8192
+!i10e 25
+!i10f 100
+cModel Technology
+Z0 dC:/Users/cgreg/Documents/Uni/ECE2072/Project/simulation/modelsim
+vALU
+Z1 !s110 1728644058
+!i10b 1
+!s100 4AFhLF`1C_ooIAJlJ:kgT2
+IzYAejnfaDQ@`f]^IA1oh>0
+Z2 VDg1SIo80bB@j0V0VzS_@n1
+R0
+Z3 w1728634026
+Z4 8C:/Users/cgreg/Documents/Uni/ECE2072/Project/ece2072_assignment_skeleton/components.v
+Z5 FC:/Users/cgreg/Documents/Uni/ECE2072/Project/ece2072_assignment_skeleton/components.v
+L0 137
+Z6 OV;L;10.5b;63
+r1
+!s85 0
+31
+Z7 !s108 1728644058.000000
+Z8 !s107 C:/Users/cgreg/Documents/Uni/ECE2072/Project/ece2072_assignment_skeleton/components.v|
+Z9 !s90 -reportprogress|300|-vlog01compat|-work|work|+incdir+C:/Users/cgreg/Documents/Uni/ECE2072/Project/ece2072_assignment_skeleton|C:/Users/cgreg/Documents/Uni/ECE2072/Project/ece2072_assignment_skeleton/components.v|
+!i113 1
+Z10 o-vlog01compat -work work
+Z11 !s92 -vlog01compat -work work +incdir+C:/Users/cgreg/Documents/Uni/ECE2072/Project/ece2072_assignment_skeleton
+Z12 tCvgOpt 0
+n@a@l@u
+vmultiplexer
+R1
+!i10b 1
+!s100 ^IR?kj>mPHk2:=;SI3DJ^1
+IOg1`o`3fiJeT;`>KTk?>N2
+R2
+R0
+R3
+R4
+R5
+L0 83
+R6
+r1
+!s85 0
+31
+R7
+R8
+R9
+!i113 1
+R10
+R11
+R12
+vproc_extension_tb
+R1
+!i10b 1
+!s100 1BkCZEa0ll9CX8edHf?ZO0
+In[XeC6@eZ`D6hWVI?3Tgb3
+R2
+R0
+Z13 w1728643520
+8C:/Users/cgreg/Documents/Uni/ECE2072/Project/ece2072_assignment_skeleton/proc_extension_tb.v
+FC:/Users/cgreg/Documents/Uni/ECE2072/Project/ece2072_assignment_skeleton/proc_extension_tb.v
+L0 9
+R6
+r1
+!s85 0
+31
+!s108 1728644057.000000
+!s107 C:/Users/cgreg/Documents/Uni/ECE2072/Project/ece2072_assignment_skeleton/proc_extension_tb.v|
+!s90 -reportprogress|300|-vlog01compat|-work|work|+incdir+C:/Users/cgreg/Documents/Uni/ECE2072/Project/ece2072_assignment_skeleton|C:/Users/cgreg/Documents/Uni/ECE2072/Project/ece2072_assignment_skeleton/proc_extension_tb.v|
+!i113 1
+R10
+R11
+R12
+vregister_n
+R1
+!i10b 1
+!s100 @1lO;OH5FGd@K9HMIb3G;1
+I2hImDSbF5NidDY@b[2Dl91
+R2
+R0
+R3
+R4
+R5
+L0 164
+R6
+r1
+!s85 0
+31
+R7
+R8
+R9
+!i113 1
+R10
+R11
+R12
+vsign_extend
+R1
+!i10b 1
+!s100 I8hJ[>B;zfkG3^RS;YPR83
+IlTBzJAX2TBMEK5zDZ^d^_3
+R2
+R0
+R3
+R4
+R5
+Z14 L0 11
+R6
+r1
+!s85 0
+31
+R7
+R8
+R9
+!i113 1
+R10
+R11
+R12
+vsimple_proc_ext
+R1
+!i10b 1
+!s100 D7Z691Kb=<]9kVo8ZhNlY3
+IReX@iKTKN]l34M]KK0OGh2
+R2
+R0
+R13
+8C:/Users/cgreg/Documents/Uni/ECE2072/Project/ece2072_assignment_skeleton/proc_extension.v
+FC:/Users/cgreg/Documents/Uni/ECE2072/Project/ece2072_assignment_skeleton/proc_extension.v
+R14
+R6
+r1
+!s85 0
+31
+R7
+!s107 C:/Users/cgreg/Documents/Uni/ECE2072/Project/ece2072_assignment_skeleton/proc_extension.v|
+!s90 -reportprogress|300|-vlog01compat|-work|work|+incdir+C:/Users/cgreg/Documents/Uni/ECE2072/Project/ece2072_assignment_skeleton|C:/Users/cgreg/Documents/Uni/ECE2072/Project/ece2072_assignment_skeleton/proc_extension.v|
+!i113 1
+R10
+R11
+R12
+vtick_FSM
+R1
+!i10b 1
+!s100 Ol4Y:8iA>jWGW23M>4i@]0
+ID;nceO?OH?m=5<nSj1L:l1
+R2
+R0
+R3
+R4
+R5
+L0 29
+R6
+r1
+!s85 0
+31
+R7
+R8
+R9
+!i113 1
+R10
+R11
+R12
+ntick_@f@s@m

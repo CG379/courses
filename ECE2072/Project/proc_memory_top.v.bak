@@ -1,0 +1,85 @@
+module top_level(
+    input CLOCK_50,        // 50 MHz clock
+    input [9:0] SW,        // Switches
+    input [3:0] KEY,       // Keys (active low)
+    output [9:0] LEDR,     // LEDs
+    output [6:0] HEX0, HEX1, HEX2, HEX3, HEX4, HEX5 // 7-segment displays
+);
+
+    // Internal signals
+    wire [15:0] PC;
+    wire [15:0] instruction;
+    wire [15:0] bus;
+    wire [15:0] display;
+    wire [3:0] tick;
+    wire clk_10Hz;
+
+    // Generate 10 Hz clock
+    clock_divider #(.DIVISOR(5000000)) clk_div (
+        .clk_in(CLOCK_50),
+        .clk_out(clk_10Hz)
+    );
+
+    // Instantiate the ROM IP block
+    rom_ip instruction_memory (
+        .address(PC[15:1]),  // Each instruction is 2 words
+        .clock(CLOCK_50),    // Use 50 MHz clock for ROM
+        .q(instruction)
+    );
+
+    // Instantiate the processor
+    proc_memory processor (
+        .clk(clk_10Hz),
+        .rst(~KEY[0]),
+        .enable(SW[9]),
+        .PC(PC),
+        .instruction(instruction),
+        .bus(bus),
+        .display(display),
+        .tick_out(tick)
+    );
+
+    // Connect LEDR to the bottom 10 bits of the bus
+    assign LEDR = bus[9:0];
+
+    // BCD decoder for display output
+    bcd_decoder bcd_disp (
+        .binary(display),
+        .hex0(HEX0),
+        .hex1(HEX1),
+        .hex2(HEX2),
+        .hex3(HEX3),
+        .hex4(HEX4)
+    );
+
+    // Decode tick to 7-segment display
+    tick_to_7seg tick_decoder (
+        .tick(tick),
+        .hex(HEX5)
+    );
+
+endmodule
+
+// Clock divider module (you may already have this from Lab 3)
+module clock_divider #(parameter DIVISOR = 5000000) (
+    input clk_in,
+    output reg clk_out
+);
+    // Implementation here
+endmodule
+
+// BCD decoder module
+module bcd_decoder (
+    input [15:0] binary,
+    output reg [6:0] hex0, hex1, hex2, hex3, hex4
+);
+    // Implementation here
+endmodule
+
+// Tick to 7-segment decoder
+module tick_to_7seg (
+    input [3:0] tick,
+    output reg [6:0] hex
+);
+    // Implementation here
+endmodule

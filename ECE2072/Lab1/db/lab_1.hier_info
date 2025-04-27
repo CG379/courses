@@ -1,0 +1,43 @@
+|BCD_instantiate
+SW[0] => SW[0].IN1
+SW[1] => SW[1].IN1
+SW[2] => SW[2].IN1
+SW[3] => SW[3].IN1
+HEX0[0] << BCD:comb_3.X
+HEX0[1] << BCD:comb_3.X
+HEX0[2] << BCD:comb_3.X
+HEX0[3] << BCD:comb_3.X
+HEX0[4] << BCD:comb_3.X
+HEX0[5] << BCD:comb_3.X
+HEX0[6] << BCD:comb_3.X
+
+
+|BCD_instantiate|BCD:comb_3
+A[3] => e.IN1
+A[3] => b.IN1
+A[3] => d.IN1
+A[3] => f.IN0
+A[3] => g.IN1
+A[3] => d.IN1
+A[3] => c.IN1
+A[3] => b.IN1
+A[2] => c.IN1
+A[2] => f.IN1
+A[2] => g.IN1
+A[2] => g.IN1
+A[2] => e.IN0
+A[2] => d.IN1
+A[1] => e.IN1
+A[1] => g.IN0
+A[1] => g.IN0
+A[0] => g.IN1
+A[0] => g.IN1
+X[0] <= d.DB_MAX_OUTPUT_PORT_TYPE
+X[1] <= b.DB_MAX_OUTPUT_PORT_TYPE
+X[2] <= c.DB_MAX_OUTPUT_PORT_TYPE
+X[3] <= d.DB_MAX_OUTPUT_PORT_TYPE
+X[4] <= e.DB_MAX_OUTPUT_PORT_TYPE
+X[5] <= f.DB_MAX_OUTPUT_PORT_TYPE
+X[6] <= g.DB_MAX_OUTPUT_PORT_TYPE
+
+

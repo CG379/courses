@@ -1,0 +1,25 @@
+|instantiate_light
+SW[0] => SW[0].IN1
+SW[1] => SW[1].IN1
+SW[2] => SW[2].IN1
+SW[3] => SW[3].IN1
+LEDR[0] << light_verilog:light1.f
+LEDR[1] << light_verilog:light1.f
+LEDR[2] << light_vhdl:light2.f
+LEDR[3] << light_vhdl:light2.f
+
+
+|instantiate_light|light_verilog:light1
+x1 => f.IN0
+x1 => f.IN0
+x2 => f.IN1
+x2 => f.IN1
+f <= f.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|instantiate_light|light_vhdl:light2
+x1 => xor_gate.IN0
+x2 => xor_gate.IN1
+f <= xor_gate.DB_MAX_OUTPUT_PORT_TYPE
+
+
