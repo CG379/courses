@@ -1,0 +1,42 @@
+`timescale 1ns / 1ps
+module clock_10_tb;
+	// Method:
+	// in one clock cycle of clock_100 there should be 20 clock cycles from inbuilt clock_50
+	// Check high and low clock cycle for clock_100
+	reg CLOCK_50;
+	reg clk_10;
+   // Outputs
+   wire [9:0] LEDR;
+   wire [2:2] GPIO;
+
+	clock_10 clock (.CLOCK_50(CLOCK_50), .LEDR(LEDR), .GPIO(GPIO));
+
+    // Clock gen
+    always #10 CLOCK_50 = ~CLOCK_50; 
+	 always #50 clk_10 = ~clk_10;
+	 
+	 integer errors;
+	 
+	initial begin
+		CLOCK_50 = 0;
+		clk_10 = 0;
+		errors = 0;
+	end
+	 
+    always @(posedge clk_10) begin
+        if (GPIO[2] != clk_10) begin
+            $display("Error: Output = %d, should be %d", GPIO, clk_10);
+				errors <= errors + 1;
+        end
+    end
+	 
+	initial begin
+        $display("Starting clock_100 test...");
+
+        // Wait for 100 ms
+        #100_000_000
+	     $display("Test completed");
+        $finish;
+    end
+	
+endmodule

@@ -1,0 +1,4 @@
+module clock_100 (CLOCK_50, LEDR, GPIO);
+
+
+endmodule

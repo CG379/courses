@@ -1,0 +1,30 @@
+module sequence_detector_part_2 ( ... );
+	// TODO: define input and output ports:
+
+	// define signals:
+	reg [3:0] y_Q, y_D;	// y_Q represents current state, y_D represents next state
+
+	// define state parameters:
+	parameter A = 4'b0000, B = 4'b0001, C = 4'b0010, D = 4'b0011, E = 4'b0100, F = 4'b0101, G = 4'b0110, H = 4'b0111, I = 4'b1000;
+
+
+	// TODO: implement the state table:
+	always @(w, y_Q) begin 
+		case (y_Q)
+			A: 
+				if (!w) y_D = B;
+				else y_D = F;
+			// TODO: Fill in remainder of state table:
+			default: y_D = 4'bxxxx;
+		endcase
+	end
+
+	// TODO: udpate the state on rising clock edges:
+	always @(posedge Clock)
+	begin: state_FFs
+	... 
+	end // state_FFS
+
+	// TODO: assignments for output z and the LEDs:
+	
+endmodule

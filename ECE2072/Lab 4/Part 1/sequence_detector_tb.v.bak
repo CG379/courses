@@ -1,0 +1,73 @@
+`timescale 1ns / 1ps
+
+module sequence_detector_tb;
+
+    // Inputs
+    reg [1:0] SW;
+    reg [0:0] KEY;
+
+    // Outputs
+    wire [9:0] LEDR;
+
+    // Instantiate the Unit Under Test (UUT)
+    sequence_detector_part_1 uut (
+        .SW(SW), 
+        .KEY(KEY), 
+        .LEDR(LEDR)
+    );
+
+    // Clock generation
+    always #5 KEY[0] = ~KEY[0];
+
+    initial begin
+        // Initialize Inputs
+        SW = 0;
+        KEY = 1;
+
+        // Wait 100 ns for global reset to finish
+        #100;
+      
+        // Add stimulus here
+        SW[0] = 1; // Set reset to 1
+        #10;
+        
+        // Test sequence 1: 1101
+        SW[1] = 1; #10;
+        SW[1] = 1; #10;
+        SW[1] = 0; #10;
+        SW[1] = 1; #10;
+        
+        // Test sequence 2: 11011
+        SW[1] = 1; #10;
+        SW[1] = 1; #10;
+        SW[1] = 0; #10;
+        SW[1] = 1; #10;
+        SW[1] = 1; #10;
+        
+        // Test sequence 3: 110110
+        SW[1] = 1; #10;
+        SW[1] = 1; #10;
+        SW[1] = 0; #10;
+        SW[1] = 1; #10;
+        SW[1] = 1; #10;
+        SW[1] = 0; #10;
+        
+        // Reset the system
+        SW[0] = 0; #10;
+        SW[0] = 1; #10;
+        
+        // Test invalid sequence: 1100
+        SW[1] = 1; #10;
+        SW[1] = 1; #10;
+        SW[1] = 0; #10;
+        SW[1] = 0; #10;
+
+        #100 $finish;
+    end
+      
+    // Monitor changes
+    initial begin
+        $monitor("Time=%0t SW=%b KEY=%b LEDR=%b", $time, SW, KEY, LEDR);
+    end
+
+endmodule

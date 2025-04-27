@@ -1,0 +1,14 @@
+|ones_counting_testbench
+
+
+|ones_counting_testbench|ones_counter:test1
+in[0] => Add0.IN2
+in[1] => Add0.IN1
+in[2] => Add1.IN4
+in[3] => Add2.IN6
+count[0] <= Add2.DB_MAX_OUTPUT_PORT_TYPE
+count[1] <= Add2.DB_MAX_OUTPUT_PORT_TYPE
+count[2] <= Add2.DB_MAX_OUTPUT_PORT_TYPE
+count[3] <= Add2.DB_MAX_OUTPUT_PORT_TYPE
+
+

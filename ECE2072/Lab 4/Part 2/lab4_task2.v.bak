@@ -1,0 +1,68 @@
+module lab4_task2(CLOCK_50, KEY, LEDR);
+	input CLOCK_50;
+	input [1:0] KEY;
+	output [9:0] LEDR;
+	
+	// A test Default state, you can find more in the lab doc
+	wire [63:0] default_state;
+	assign default_state = 64'd147499484866150400;
+	
+	// TODO: Make a counter so that the game runs at the specified speed
+	
+	// JTAG MODULE
+	JTAG_UART_MODULE jtag(
+		.clk(CLOCK_50),
+		.write(/* Write Clock */),
+		.writedata(/* single row of the game board */),
+		.reset(),
+		.readdata(),
+	);
+	
+	// GAME OF LIFE
+	game_of_life game(
+		.clk(/* Game Clock */),
+		.load(/* Load Signal */), 
+		.data(default_state),
+		.q(/* Whole board output */)
+		);  
+	
+	// Seperate the game of life output into rows. The rows should update 8x faster than the game does
+	always @(posedge /* Write Clock */ ) begin
+		/* sequentially update the output to the jtag*/
+	end
+endmodule
+
+module game_of_life(clk, load, data, q);
+    input load;
+    input clk;
+    input [63:0] data;
+    output reg [63:0] q; 
+
+    reg [63:0] q_next;
+    reg [3:0] counter;
+
+	initial begin
+		q_next = 0;
+		counter = 0;
+	end
+	
+	// TODO: Initiliaze Loop integers
+    
+    always @(*) begin 
+        // Game of life code
+	    // Two main for-loops to handle the analysis of each cell
+	    for (i = 1; i < /* ??? */; i = i + 1) begin
+            for (j = 1; j < /* ??? */; j = j + 1) begin
+                // Check for edge conditions
+                // Count the neighbours
+                // Choose next state
+            end
+	    end
+    end        
+    
+    
+    always @(posedge clk) begin
+        if (load) q <= data;
+        else q <= q_next;
+    end
+endmodule

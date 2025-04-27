@@ -1,0 +1,244 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<deploy
+ date="2023.06.20.13:00:16"
+ outputDirectory="C:/intelFPGA_lite/18.1/fpga_test/ECE2072_Dev/Lab2/jtag_uart/">
+ <perimeter>
+  <parameter
+     name="AUTO_GENERATION_ID"
+     type="Integer"
+     defaultValue="0"
+     onHdl="0"
+     affectsHdl="1" />
+  <parameter
+     name="AUTO_UNIQUE_ID"
+     type="String"
+     defaultValue=""
+     onHdl="0"
+     affectsHdl="1" />
+  <parameter
+     name="AUTO_DEVICE_FAMILY"
+     type="String"
+     defaultValue="MAX 10"
+     onHdl="0"
+     affectsHdl="1" />
+  <parameter
+     name="AUTO_DEVICE"
+     type="String"
+     defaultValue="10M50DAF484C7G"
+     onHdl="0"
+     affectsHdl="1" />
+  <parameter
+     name="AUTO_DEVICE_SPEEDGRADE"
+     type="String"
+     defaultValue="7"
+     onHdl="0"
+     affectsHdl="1" />
+  <parameter
+     name="AUTO_JTAG_UART_0_CLK_CLOCK_RATE"
+     type="Long"
+     defaultValue="-1"
+     onHdl="0"
+     affectsHdl="1" />
+  <parameter
+     name="AUTO_JTAG_UART_0_CLK_CLOCK_DOMAIN"
+     type="Integer"
+     defaultValue="-1"
+     onHdl="0"
+     affectsHdl="1" />
+  <parameter
+     name="AUTO_JTAG_UART_0_CLK_RESET_DOMAIN"
+     type="Integer"
+     defaultValue="-1"
+     onHdl="0"
+     affectsHdl="1" />
+  <interface name="jtag_uart_0_avalon_jtag_slave" kind="avalon" start="0">
+   <property name="addressAlignment" value="NATIVE" />
+   <property name="addressGroup" value="0" />
+   <property name="addressSpan" value="2" />
+   <property name="addressUnits" value="WORDS" />
+   <property name="alwaysBurstMaxBurst" value="false" />
+   <property name="associatedClock" value="jtag_uart_0_clk" />
+   <property name="associatedReset" value="jtag_uart_0_reset" />
+   <property name="bitsPerSymbol" value="8" />
+   <property name="bridgedAddressOffset" value="0" />
+   <property name="bridgesToMaster" value="" />
+   <property name="burstOnBurstBoundariesOnly" value="false" />
+   <property name="burstcountUnits" value="WORDS" />
+   <property name="constantBurstBehavior" value="false" />
+   <property name="explicitAddressSpan" value="0" />
+   <property name="holdTime" value="0" />
+   <property name="interleaveBursts" value="false" />
+   <property name="isBigEndian" value="false" />
+   <property name="isFlash" value="false" />
+   <property name="isMemoryDevice" value="false" />
+   <property name="isNonVolatileStorage" value="false" />
+   <property name="linewrapBursts" value="false" />
+   <property name="maximumPendingReadTransactions" value="0" />
+   <property name="maximumPendingWriteTransactions" value="0" />
+   <property name="minimumUninterruptedRunLength" value="1" />
+   <property name="printableDevice" value="true" />
+   <property name="readLatency" value="0" />
+   <property name="readWaitStates" value="1" />
+   <property name="readWaitTime" value="1" />
+   <property name="registerIncomingSignals" value="false" />
+   <property name="registerOutgoingSignals" value="false" />
+   <property name="setupTime" value="0" />
+   <property name="timingUnits" value="Cycles" />
+   <property name="transparentBridge" value="false" />
+   <property name="wellBehavedWaitrequest" value="false" />
+   <property name="writeLatency" value="0" />
+   <property name="writeWaitStates" value="0" />
+   <property name="writeWaitTime" value="0" />
+   <port
+       name="jtag_uart_0_avalon_jtag_slave_chipselect"
+       direction="input"
+       role="chipselect"
+       width="1" />
+   <port
+       name="jtag_uart_0_avalon_jtag_slave_address"
+       direction="input"
+       role="address"
+       width="1" />
+   <port
+       name="jtag_uart_0_avalon_jtag_slave_read_n"
+       direction="input"
+       role="read_n"
+       width="1" />
+   <port
+       name="jtag_uart_0_avalon_jtag_slave_readdata"
+       direction="output"
+       role="readdata"
+       width="32" />
+   <port
+       name="jtag_uart_0_avalon_jtag_slave_write_n"
+       direction="input"
+       role="write_n"
+       width="1" />
+   <port
+       name="jtag_uart_0_avalon_jtag_slave_writedata"
+       direction="input"
+       role="writedata"
+       width="32" />
+   <port
+       name="jtag_uart_0_avalon_jtag_slave_waitrequest"
+       direction="output"
+       role="waitrequest"
+       width="1" />
+  </interface>
+  <interface name="jtag_uart_0_clk" kind="clock" start="0">
+   <property name="clockRate" value="0" />
+   <property name="externallyDriven" value="false" />
+   <property name="ptfSchematicName" value="" />
+   <port name="jtag_uart_0_clk_clk" direction="input" role="clk" width="1" />
+  </interface>
+  <interface name="jtag_uart_0_reset" kind="reset" start="0">
+   <property name="associatedClock" value="jtag_uart_0_clk" />
+   <property name="synchronousEdges" value="DEASSERT" />
+   <port
+       name="jtag_uart_0_reset_reset_n"
+       direction="input"
+       role="reset_n"
+       width="1" />
+  </interface>
+ </perimeter>
+ <entity
+   path=""
+   parameterizationKey="jtag_uart:1.0:AUTO_DEVICE=10M50DAF484C7G,AUTO_DEVICE_FAMILY=MAX 10,AUTO_DEVICE_SPEEDGRADE=7,AUTO_GENERATION_ID=1687230015,AUTO_JTAG_UART_0_CLK_CLOCK_DOMAIN=-1,AUTO_JTAG_UART_0_CLK_CLOCK_RATE=-1,AUTO_JTAG_UART_0_CLK_RESET_DOMAIN=-1,AUTO_UNIQUE_ID=(altera_avalon_jtag_uart:18.1:allowMultipleConnections=false,avalonSpec=2.0,clkFreq=0,enableInteractiveInput=false,enableInteractiveOutput=false,hubInstanceID=0,legacySignalAllow=false,readBufferDepth=8,readIRQThreshold=8,simInputCharacterStream=,simInteractiveOptions=NO_INTERACTIVE_WINDOWS,useRegistersForReadBuffer=false,useRegistersForWriteBuffer=false,useRelativePathForSimFile=false,writeBufferDepth=8,writeIRQThreshold=8)"
+   instancePathKey="jtag_uart"
+   kind="jtag_uart"
+   version="1.0"
+   name="jtag_uart">
+  <parameter name="AUTO_GENERATION_ID" value="1687230015" />
+  <parameter name="AUTO_DEVICE" value="10M50DAF484C7G" />
+  <parameter name="AUTO_DEVICE_FAMILY" value="MAX 10" />
+  <parameter name="AUTO_UNIQUE_ID" value="" />
+  <parameter name="AUTO_DEVICE_SPEEDGRADE" value="7" />
+  <parameter name="AUTO_JTAG_UART_0_CLK_CLOCK_RATE" value="-1" />
+  <parameter name="AUTO_JTAG_UART_0_CLK_CLOCK_DOMAIN" value="-1" />
+  <parameter name="AUTO_JTAG_UART_0_CLK_RESET_DOMAIN" value="-1" />
+  <generatedFiles>
+   <file
+       path="C:/intelFPGA_lite/18.1/fpga_test/ECE2072_Dev/Lab2/jtag_uart/synthesis/jtag_uart.v"
+       type="VERILOG" />
+  </generatedFiles>
+  <childGeneratedFiles>
+   <file
+       path="C:/intelFPGA_lite/18.1/fpga_test/ECE2072_Dev/Lab2/jtag_uart/synthesis/submodules/jtag_uart_jtag_uart_0.v"
+       type="VERILOG"
+       attributes="" />
+  </childGeneratedFiles>
+  <sourceFiles>
+   <file
+       path="C:/intelFPGA_lite/18.1/fpga_test/ECE2072_Dev/Lab2/jtag_uart.qsys" />
+  </sourceFiles>
+  <childSourceFiles>
+   <file
+       path="C:/intelfpga_lite/18.1/ip/altera/sopc_builder_ip/altera_avalon_jtag_uart/altera_avalon_jtag_uart_hw.tcl" />
+  </childSourceFiles>
+  <messages>
+   <message level="Debug" culprit="jtag_uart">queue size: 0 starting:jtag_uart "jtag_uart"</message>
+   <message level="Progress" culprit="min"></message>
+   <message level="Progress" culprit="max"></message>
+   <message level="Progress" culprit="current"></message>
+   <message level="Debug">Transform: CustomInstructionTransform</message>
+   <message level="Debug">No custom instruction connections, skipping transform </message>
+   <message level="Debug" culprit="merlin_custom_instruction_transform"><![CDATA[After transform: <b>1</b> modules, <b>0</b> connections]]></message>
+   <message level="Debug">Transform: MMTransform</message>
+   <message level="Debug">Transform: InterruptMapperTransform</message>
+   <message level="Debug">Transform: InterruptSyncTransform</message>
+   <message level="Debug">Transform: InterruptFanoutTransform</message>
+   <message level="Debug">Transform: AvalonStreamingTransform</message>
+   <message level="Debug">Transform: ResetAdaptation</message>
+   <message level="Debug" culprit="jtag_uart"><![CDATA["<b>jtag_uart</b>" reuses <b>altera_avalon_jtag_uart</b> "<b>submodules/jtag_uart_jtag_uart_0</b>"]]></message>
+   <message level="Debug" culprit="jtag_uart">queue size: 0 starting:altera_avalon_jtag_uart "submodules/jtag_uart_jtag_uart_0"</message>
+   <message level="Info" culprit="jtag_uart_0">Starting RTL generation for module 'jtag_uart_jtag_uart_0'</message>
+   <message level="Info" culprit="jtag_uart_0">  Generation command is [exec C:/intelfpga_lite/18.1/quartus/bin64/perl/bin/perl.exe -I C:/intelfpga_lite/18.1/quartus/bin64/perl/lib -I C:/intelfpga_lite/18.1/quartus/sopc_builder/bin/europa -I C:/intelfpga_lite/18.1/quartus/sopc_builder/bin/perl_lib -I C:/intelfpga_lite/18.1/quartus/sopc_builder/bin -I C:/intelfpga_lite/18.1/quartus/../ip/altera/sopc_builder_ip/common -I C:/intelfpga_lite/18.1/quartus/../ip/altera/sopc_builder_ip/altera_avalon_jtag_uart -- C:/intelfpga_lite/18.1/quartus/../ip/altera/sopc_builder_ip/altera_avalon_jtag_uart/generate_rtl.pl --name=jtag_uart_jtag_uart_0 --dir=C:/Users/BENSAU~1/AppData/Local/Temp/alt9528_5176726655798475461.dir/0002_jtag_uart_0_gen/ --quartus_dir=C:/intelfpga_lite/18.1/quartus --verilog --config=C:/Users/BENSAU~1/AppData/Local/Temp/alt9528_5176726655798475461.dir/0002_jtag_uart_0_gen//jtag_uart_jtag_uart_0_component_configuration.pl  --do_build_sim=0  ]</message>
+   <message level="Info" culprit="jtag_uart_0">Done RTL generation for module 'jtag_uart_jtag_uart_0'</message>
+   <message level="Info" culprit="jtag_uart_0"><![CDATA["<b>jtag_uart</b>" instantiated <b>altera_avalon_jtag_uart</b> "<b>jtag_uart_0</b>"]]></message>
+  </messages>
+ </entity>
+ <entity
+   path="submodules/"
+   parameterizationKey="altera_avalon_jtag_uart:18.1:allowMultipleConnections=false,avalonSpec=2.0,clkFreq=0,enableInteractiveInput=false,enableInteractiveOutput=false,hubInstanceID=0,legacySignalAllow=false,readBufferDepth=8,readIRQThreshold=8,simInputCharacterStream=,simInteractiveOptions=NO_INTERACTIVE_WINDOWS,useRegistersForReadBuffer=false,useRegistersForWriteBuffer=false,useRelativePathForSimFile=false,writeBufferDepth=8,writeIRQThreshold=8"
+   instancePathKey="jtag_uart:.:jtag_uart_0"
+   kind="altera_avalon_jtag_uart"
+   version="18.1"
+   name="jtag_uart_jtag_uart_0">
+  <parameter name="readBufferDepth" value="8" />
+  <parameter name="clkFreq" value="0" />
+  <parameter name="useRelativePathForSimFile" value="false" />
+  <parameter name="hubInstanceID" value="0" />
+  <parameter name="enableInteractiveInput" value="false" />
+  <parameter name="avalonSpec" value="2.0" />
+  <parameter name="simInputCharacterStream" value="" />
+  <parameter name="readIRQThreshold" value="8" />
+  <parameter name="useRegistersForWriteBuffer" value="false" />
+  <parameter name="useRegistersForReadBuffer" value="false" />
+  <parameter name="simInteractiveOptions" value="NO_INTERACTIVE_WINDOWS" />
+  <parameter name="enableInteractiveOutput" value="false" />
+  <parameter name="writeIRQThreshold" value="8" />
+  <parameter name="writeBufferDepth" value="8" />
+  <parameter name="allowMultipleConnections" value="false" />
+  <parameter name="legacySignalAllow" value="false" />
+  <generatedFiles>
+   <file
+       path="C:/intelFPGA_lite/18.1/fpga_test/ECE2072_Dev/Lab2/jtag_uart/synthesis/submodules/jtag_uart_jtag_uart_0.v"
+       type="VERILOG"
+       attributes="" />
+  </generatedFiles>
+  <childGeneratedFiles/>
+  <sourceFiles>
+   <file
+       path="C:/intelfpga_lite/18.1/ip/altera/sopc_builder_ip/altera_avalon_jtag_uart/altera_avalon_jtag_uart_hw.tcl" />
+  </sourceFiles>
+  <childSourceFiles/>
+  <instantiator instantiator="jtag_uart" as="jtag_uart_0" />
+  <messages>
+   <message level="Debug" culprit="jtag_uart">queue size: 0 starting:altera_avalon_jtag_uart "submodules/jtag_uart_jtag_uart_0"</message>
+   <message level="Info" culprit="jtag_uart_0">Starting RTL generation for module 'jtag_uart_jtag_uart_0'</message>
+   <message level="Info" culprit="jtag_uart_0">  Generation command is [exec C:/intelfpga_lite/18.1/quartus/bin64/perl/bin/perl.exe -I C:/intelfpga_lite/18.1/quartus/bin64/perl/lib -I C:/intelfpga_lite/18.1/quartus/sopc_builder/bin/europa -I C:/intelfpga_lite/18.1/quartus/sopc_builder/bin/perl_lib -I C:/intelfpga_lite/18.1/quartus/sopc_builder/bin -I C:/intelfpga_lite/18.1/quartus/../ip/altera/sopc_builder_ip/common -I C:/intelfpga_lite/18.1/quartus/../ip/altera/sopc_builder_ip/altera_avalon_jtag_uart -- C:/intelfpga_lite/18.1/quartus/../ip/altera/sopc_builder_ip/altera_avalon_jtag_uart/generate_rtl.pl --name=jtag_uart_jtag_uart_0 --dir=C:/Users/BENSAU~1/AppData/Local/Temp/alt9528_5176726655798475461.dir/0002_jtag_uart_0_gen/ --quartus_dir=C:/intelfpga_lite/18.1/quartus --verilog --config=C:/Users/BENSAU~1/AppData/Local/Temp/alt9528_5176726655798475461.dir/0002_jtag_uart_0_gen//jtag_uart_jtag_uart_0_component_configuration.pl  --do_build_sim=0  ]</message>
+   <message level="Info" culprit="jtag_uart_0">Done RTL generation for module 'jtag_uart_jtag_uart_0'</message>
+   <message level="Info" culprit="jtag_uart_0"><![CDATA["<b>jtag_uart</b>" instantiated <b>altera_avalon_jtag_uart</b> "<b>jtag_uart_0</b>"]]></message>
+  </messages>
+ </entity>
+</deploy>

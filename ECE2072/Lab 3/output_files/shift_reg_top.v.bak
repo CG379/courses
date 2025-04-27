@@ -1,0 +1,8 @@
+module shift_reg_top (clk, D, Q);
+	input clk;
+	input D;
+	output [4:0]Q;
+	
+
+
+endmodule

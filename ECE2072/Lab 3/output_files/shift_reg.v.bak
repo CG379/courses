@@ -1,0 +1,4 @@
+module shift_reg (CLOCK_50, LEDR, GPIO);
+
+
+endmodule

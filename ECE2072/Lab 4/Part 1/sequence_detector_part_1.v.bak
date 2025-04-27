@@ -1,0 +1,34 @@
+module sequence_detector (SW, KEY, LEDR);
+	input [1:0] SW;
+	input [0:0] KEY;
+	output [9:0] LEDR;
+	wire Clock, Resetn;
+	assign Clock = ~KEY[0];
+	assign Resetn = SW[0];
+	// what other wires need to be defined here ...
+
+	// instantiate flip flops for each state:
+	
+
+	// define next state logic for each flip flop:
+	
+
+	// assign the state to LEDR[8:0]:
+
+	// assign the output to LEDR[9]:
+
+endmodule
+
+
+module flipflop (D, Clock, Resetn, Setn, Q);
+	input D, Clock, Resetn, Setn;
+	output reg Q;
+	always @(posedge Clock) begin
+		if (!Resetn) // synchronous clear
+			Q <= 1'b0;
+		else if (!Setn) // synchronous set
+			Q <= 1'b1;
+		else
+			Q <= D;
+	end
+endmodule

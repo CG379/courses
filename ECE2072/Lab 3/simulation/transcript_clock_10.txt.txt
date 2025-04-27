@@ -1,0 +1,61 @@
+# Reading C:/intelFPGA_lite/18.1/modelsim_ae/tcl/vsim/pref.tcl
+# do Lab3_run_msim_rtl_verilog.do
+# if {[file exists rtl_work]} {
+# 	vdel -lib rtl_work -all
+# }
+# vlib rtl_work
+# vmap work rtl_work
+# Model Technology ModelSim - Intel FPGA Edition vmap 10.5b Lib Mapping Utility 2016.10 Oct  5 2016
+# vmap work rtl_work 
+# Copying C:/intelFPGA_lite/18.1/modelsim_ae/win32aloem/../modelsim.ini to modelsim.ini
+# Modifying modelsim.ini
+# 
+# vlog -vlog01compat -work work +incdir+C:/Users/cgreg/Documents/Uni/ECE2072/Lab\ 3/output_files {C:/Users/cgreg/Documents/Uni/ECE2072/Lab 3/output_files/clock_10_tb.v}
+# Model Technology ModelSim - Intel FPGA Edition vlog 10.5b Compiler 2016.10 Oct  5 2016
+# Start time: 12:00:06 on Sep 03,2024
+# vlog -reportprogress 300 -vlog01compat -work work "+incdir+C:/Users/cgreg/Documents/Uni/ECE2072/Lab 3/output_files" C:/Users/cgreg/Documents/Uni/ECE2072/Lab 3/output_files/clock_10_tb.v 
+# -- Compiling module clock_10_tb
+# 
+# Top level modules:
+# 	clock_10_tb
+# End time: 12:00:06 on Sep 03,2024, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+# vlog -vlog01compat -work work +incdir+C:/Users/cgreg/Documents/Uni/ECE2072/Lab\ 3/output_files {C:/Users/cgreg/Documents/Uni/ECE2072/Lab 3/output_files/clock_10.v}
+# Model Technology ModelSim - Intel FPGA Edition vlog 10.5b Compiler 2016.10 Oct  5 2016
+# Start time: 12:00:06 on Sep 03,2024
+# vlog -reportprogress 300 -vlog01compat -work work "+incdir+C:/Users/cgreg/Documents/Uni/ECE2072/Lab 3/output_files" C:/Users/cgreg/Documents/Uni/ECE2072/Lab 3/output_files/clock_10.v 
+# -- Compiling module clock_10
+# 
+# Top level modules:
+# 	clock_10
+# End time: 12:00:07 on Sep 03,2024, Elapsed time: 0:00:01
+# Errors: 0, Warnings: 0
+# 
+vsim work.clock_10_tb
+# vsim work.clock_10_tb 
+# Start time: 12:00:09 on Sep 03,2024
+# //  ModelSim - Intel FPGA Edition 10.5b Oct  5 2016
+# //
+# //  Copyright 1991-2016 Mentor Graphics Corporation
+# //  All Rights Reserved.
+# //
+# //  ModelSim - Intel FPGA Edition and its associated documentation contain trade
+# //  secrets and commercial or financial information that are the property of
+# //  Mentor Graphics Corporation and are privileged, confidential,
+# //  and exempt from disclosure under the Freedom of Information Act,
+# //  5 U.S.C. Section 552. Furthermore, this information
+# //  is prohibited from disclosure under the Trade Secrets Act,
+# //  18 U.S.C. Section 1905.
+# //
+# Loading work.clock_10_tb
+# Loading work.clock_10
+add wave -position end  sim:/clock_10_tb/errors
+add wave -position end  sim:/clock_10_tb/out
+run -all
+# Starting clock_10 test...
+# Error: Clock is not 0 after 300ms (two full cycles)
+# Test completed. Total errors:           1
+# ** Note: $stop    : C:/Users/cgreg/Documents/Uni/ECE2072/Lab 3/output_files/clock_10_tb.v(57)
+#    Time: 300000100 ns  Iteration: 0  Instance: /clock_10_tb
+# Break in Module clock_10_tb at C:/Users/cgreg/Documents/Uni/ECE2072/Lab 3/output_files/clock_10_tb.v line 57
+

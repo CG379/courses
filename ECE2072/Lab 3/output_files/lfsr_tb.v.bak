@@ -1,0 +1,51 @@
+`timescale 1ns / 1ps
+module lfsr_tb;
+
+	reg [3:0] in1, in2;
+   reg cin;
+   wire [3:0] sum;
+   wire cout;
+	
+	ripple_carry_adder dut(.a(in1), .b(in2), .cin(cin), .sum(sum), .cout(cout));
+
+	
+	initial begin
+      in1 = 4'b0000;
+		in2 = 4'b0000;
+      cin = 1'b0;
+ 	end
+
+ 	always begin
+ 		#10
+		in1 = $random;
+ 	end
+
+ 	always begin
+ 		#10
+		in2 = $random;
+ 	end
+
+	integer count, errors;
+ 	initial begin
+ 		count = 0;
+ 		errors = 0;
+ 	end
+	
+ 	always begin
+ 		#9
+		// Since random, pick large enough number
+ 		if (count == 1000) begin
+ 			$display("Done with test.");
+           $display("There were %0d errors.", errors);
+ 			$stop;
+ 		end
+		// Converts the 4 bit and 1 bit to 5 bit
+ 		if ({cout, sum} != (in1 + in2 + cin)) begin
+ 			$display("Error for input (%b, %b) at time %0t.", in1, in2, $time);
+			//$display("Expected: %b, Got: %b", in1 + in2 + cin, {cout, sum});
+ 			errors = errors + 1;
+ 		end
+ 		#1
+ 		count = count + 1;
+ 	end
+endmodule

@@ -1,0 +1,7 @@
+
+
+C:/Users/cgreg/Documents/Uni/ECE2072/Lab 2/ALTMULT_ACCUM.v
+
+Aug 20 11AM:54:47>: Variation file name (ALTMULT_ACCUM) is identical with the name of one of its sub-components.
+
+MegaWizard Plug-In Manager will rename the variation to "ALTMULT_ACCUa" to prevent compilation errors
