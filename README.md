@@ -14,3 +14,5 @@ The order that a took these courses are as follows:
 7. ENG1014 (Numerical Analysis) in person at Monash - 2022 Second Semester
 8. Course 1 of the Machine Learning Specialisation (Supervised Machine Learning) by Andrew Ng on [Coursera](https://www.coursera.org/learn/machine-learning) - 2023
 9. ECE2071 (Computer Organisation and Programming) in person at Monash - 2023 Frist Semester
+10. ECE2072 (Digital Systems) in person at Monash - 2024 Second Semester
+11. ECE4197 (Deep Learning and Neural Networks) - 2024 Second Semester 
